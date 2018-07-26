@@ -1,15 +1,15 @@
 <template>
     <header>
-      <nav class="tool-bar">
+      <nav class="tool-bar" >
           <div class="left">
-              <div class="title-icon">
+              <div class="title-icon" @click="isNavShow=!isNavShow">
                     <i class="fa fa-navicon"></i>
                </div>
-              <div class="title">
+              <div class="title" @click="isNavShow=false">
                   卖座电影
               </div>
           </div>
-          <div class="right">
+          <div class="right"  @click="isNavShow=false">
               <div class="city">
 					成都
 					<i class="fa fa-angle-down"></i>
@@ -19,21 +19,27 @@
 				</div>
           </div>
       </nav>
-        <nav-list></nav-list>
+	  <!--侧边导航-->
+	 
+		   <nav-list  :isNavShow="isNavShow" @close="isNavShow=false" ></nav-list>
+
     </header>
 </template>
 
 
 <script>
-    import NavList from "./NavList"
+    import NavList from "./NavList";
+	import "animate.css";
     export default{
         name:"Header",
         data(){
-            return{}
+            return{
+				isNavShow:false,
+			}
         },
        	components :{
             NavList
-    },
+	}
     };
     
 </script>
@@ -85,8 +91,9 @@
 	    }
 
 	    .right {
-	    	float: right;
+	    	float: left;
 	    	color: #999;
+			padding-left: 0.83rem;
 	    	.city {
 	    		float: left;
 			    font-size: 14px;

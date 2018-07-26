@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    //代理表
+    proxyTable: {
+      "/mz":{
+        target:"https://m.maizuo.com",//实际应该代理访问到的目标
+        changeOrigin:true,
+        pathRewrite:{
+          "^/mz":""
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
