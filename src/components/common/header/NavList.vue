@@ -12,12 +12,20 @@
 		leave-active-class="animated slideOutLeft">
 		 <nav class="nav-group" v-if="isNavShow">
             <ul>
-                <li
+                <!--<li
                     v-for="nav in navs"
                     :key="nav.id">
                     {{nav.title}}
                     <i class="fa fa-angle-right"></i>
-                </li>
+                </li>-->
+				<router-link 
+					tag="li"
+					v-for="nav in navs"
+                    :key="nav.id"
+					:to="nav.path">
+                    {{nav.title}}
+                    <i class="fa fa-angle-right"></i>
+				</router-link>
             </ul>
         </nav>
 		</transition>
@@ -32,12 +40,12 @@
         data(){
             return{
                 navs:[
-                  {id : 1, title: "首页"},
-                  {id : 2 ,title: "影片"},
-                  {id : 3 ,title: "影院"},
-                  {id : 4 ,title: "商城"},
-                  {id : 5 ,title: "我的"},
-                  {id : 6 ,title: "卖座卡"}
+				  {id : 1, title: "首页",path:"/home"},
+                  {id : 2 ,title: "影片",path:"/flims"}
+                //   {id : 3 ,title: "影院"},
+                //   {id : 4 ,title: "商城"},
+                //   {id : 5 ,title: "我的"},
+                //   {id : 6 ,title: "卖座卡"}
 
                 ]
             }
